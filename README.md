@@ -162,21 +162,6 @@ streamlit run src/app.py
 
 ---
 
-## ☁️ Deployment ke Streamlit Cloud
-
-1. Push project ke GitHub
-2. Deploy repository melalui Streamlit Community Cloud
-3. Buka **App Settings → Secrets**
-4. Tambahkan konfigurasi berikut:
-
-```toml
-DB_URL = "postgresql://username:password@host:5432/database"
-```
-
-> File `.streamlit/secrets.toml` **tidak perlu dan tidak boleh diunggah ke GitHub** karena berisi kredensial database.
-
----
-
 ## 📈 Business Intelligence Objectives
 
 Dashboard ini dirancang untuk membantu analisis:
@@ -192,9 +177,9 @@ Dashboard ini dirancang untuk membantu analisis:
 
 ## 🎓 Informasi Akademik
 
-**Mata Kuliah:** Praktikum Perancangan Data Warehouse & Business Intelligence
+**Mata Kuliah:** Data Warehouse 
 
-**Program Studi:** Teknik Informatika / Ilmu Komputer
+**Program Studi:** Teknik Informatika 
 
 **Institusi:** Universitas Padjadjaran
 
@@ -202,5 +187,6 @@ Dashboard ini dirancang untuk membantu analisis:
 
 ## 👥 Tim Pengembang
 
-* Fadhila Latsa Tsabita — Lead Data Engineer
-* Anggota Kelompok
+* Fadhila Latsa Tsabita — 140810230005
+* Adelia Felisha Putri — 140810230003
+* Muhammad Ainur Rafiq Noantaria — 140810230009
