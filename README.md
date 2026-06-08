@@ -119,6 +119,13 @@ kimia-farma-dw/
 
 ---
 
+## 🚀 Deployment
+
+Aplikasi telah berhasil di-deploy menggunakan Streamlit Community Cloud dan dapat diakses melalui:
+
+🔗 https://kimia-farma-dw.streamlit.app/
+
+
 ## 🚀 Menjalankan Proyek Secara Lokal
 
 ### 1. Clone Repository
