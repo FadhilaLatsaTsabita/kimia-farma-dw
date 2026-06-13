@@ -34,12 +34,12 @@ VALUES (-1, '1900-01-01', 'Unknown', 'Unknown', 0, 'Q0', 1900) ON CONFLICT (wakt
 -- ============================================================================
 INSERT INTO dim_produk (produkid, kodeproduk, namaproduk, kategoriproduk, jenisproduk, brand, supplierid, hargamodal)
 SELECT DISTINCT
-    UPPER(REGEXP_REPLACE(TRIM(produkid), '[-_]', '', 'g')) AS produkid,
+    UPPER(REGEXP_REPLACE(TRIM(produkid), '[-_]', '', 'g')) AS produkid, 
     COALESCE(REGEXP_REPLACE(TRIM(kodeproduk), '[-_]', '', 'g'), 'UNKNOWN') AS kodeproduk,
-    COALESCE(TRIM(namaproduk), 'Unknown') AS namaproduk,
-    COALESCE(TRIM(kategoriproduk), 'Unknown') AS kategoriproduk,
-    COALESCE(TRIM(jenisproduk), 'Unknown') AS jenisproduk,
-    COALESCE(TRIM(brand), 'Unknown') AS brand,
+    COALESCE(INITCAP(TRIM(namaproduk)), 'Unknown Product') AS namaproduk, 
+    COALESCE(INITCAP(TRIM(kategoriproduk)), 'Unknown') AS kategoriproduk, 
+    COALESCE(INITCAP(TRIM(jenisproduk)), 'Unknown') AS jenisproduk, 
+    COALESCE(INITCAP(TRIM(brand)), 'Unknown') AS brand, 
     COALESCE(UPPER(REGEXP_REPLACE(TRIM(supplierid), '[-_]', '', 'g')), 'UNKNOWN') AS supplierid,
     COALESCE(CAST(hargamodal AS NUMERIC), 0) AS hargamodal
 FROM stg_produk
@@ -51,13 +51,13 @@ ON CONFLICT (produkid) DO NOTHING;
 -- ============================================================================
 INSERT INTO dim_apotek (apotekid, kodeapotek, namaapotek, kota, provinsi, wilayah, tipecabang)
 SELECT DISTINCT
-    UPPER(REGEXP_REPLACE(TRIM(apotekid), '[-_]', '', 'g')) AS apotekid,
+    UPPER(REGEXP_REPLACE(TRIM(apotekid), '[-_]', '', 'g')) AS apotekid, 
     COALESCE(REGEXP_REPLACE(TRIM(kodeapotek), '[-_]', '', 'g'), 'UNKNOWN') AS kodeapotek,
-    COALESCE(TRIM(namaapotek), 'Unknown') AS namaapotek,
-    COALESCE(TRIM(kota), 'Unknown') AS kota,
-    COALESCE(TRIM(provinsi), 'Unknown') AS provinsi,
-    COALESCE(TRIM(wilayah), 'Unknown') AS wilayah,
-    COALESCE(TRIM(tipecabang), 'Unknown') AS tipecabang
+    COALESCE(INITCAP(TRIM(namaapotek)), 'Unknown Apotek') AS namaapotek, 
+    COALESCE(INITCAP(TRIM(kota)), 'Unknown') AS kota, 
+    COALESCE(INITCAP(TRIM(provinsi)), 'Unknown') AS provinsi, 
+    COALESCE(INITCAP(TRIM(wilayah)), 'Unknown') AS wilayah, 
+    COALESCE(INITCAP(TRIM(tipecabang)), 'Unknown') AS tipecabang 
 FROM stg_apotek
 WHERE apotekid IS NOT NULL AND TRIM(CAST(apotekid AS TEXT)) != ''
 ON CONFLICT (apotekid) DO NOTHING;
@@ -91,13 +91,13 @@ INSERT INTO dim_pelanggan (pelangganid, kodepelanggan, namapelanggan, jeniskelam
 SELECT DISTINCT
     UPPER(REGEXP_REPLACE(TRIM(pelangganid), '[-_]', '', 'g')) AS pelangganid,
     COALESCE(REGEXP_REPLACE(TRIM(kodepelanggan), '[-_]', '', 'g'), 'UNKNOWN') AS kodepelanggan,
-    COALESCE(TRIM(namapelanggan), 'Unknown') AS namapelanggan,
-    COALESCE(TRIM(jeniskelamin), 'Unknown') AS jeniskelamin,
+    COALESCE(INITCAP(TRIM(namapelanggan)), 'Unknown Customer') AS namapelanggan, 
+    COALESCE(INITCAP(TRIM(jeniskelamin)), 'Unknown') AS jeniskelamin, 
     COALESCE(usia_cleaned, (SELECT median_val FROM median_usia), 0) AS usia,
-    COALESCE(TRIM(kelompokusia), 'Unknown') AS kelompokusia,
-    COALESCE(TRIM(kota), 'Unknown') AS kota,
-    COALESCE(TRIM(provinsi), 'Unknown') AS provinsi,
-    COALESCE(TRIM(tipepelanggan), 'Unknown') AS tipepelanggan
+    COALESCE(INITCAP(TRIM(kelompokusia)), 'Unknown') AS kelompokusia, 
+    COALESCE(INITCAP(TRIM(kota)), 'Unknown') AS kota, 
+    COALESCE(INITCAP(TRIM(provinsi)), 'Unknown') AS provinsi, 
+    COALESCE(INITCAP(TRIM(tipepelanggan)), 'Unknown') AS tipepelanggan 
 FROM cleaned_pelanggan
 ON CONFLICT (pelangganid) DO NOTHING;
 
@@ -106,12 +106,12 @@ ON CONFLICT (pelangganid) DO NOTHING;
 -- ============================================================================
 INSERT INTO dim_karyawan (karyawanid, nik, namakaryawan, jabatan, departemen, statuskepegawaian, apotekid)
 SELECT DISTINCT
-    UPPER(REGEXP_REPLACE(TRIM(karyawanid), '[-_]', '', 'g')) AS karyawanid,
+    UPPER(REGEXP_REPLACE(TRIM(karyawanid), '[-_]', '', 'g')) AS karyawanid, 
     COALESCE(TRIM(nik), 'Unknown') AS nik,
-    COALESCE(TRIM(namakaryawan), 'Unknown') AS namakaryawan,
-    COALESCE(TRIM(jabatan), 'Unknown') AS jabatan,
-    COALESCE(TRIM(departemen), 'Unknown') AS departemen,
-    COALESCE(TRIM(statuskepegawaian), 'Unknown') AS statuskepegawaian,
+    COALESCE(INITCAP(TRIM(namakaryawan)), 'Unknown Karyawan') AS namakaryawan, 
+    COALESCE(INITCAP(TRIM(jabatan)), 'Unknown') AS jabatan, 
+    COALESCE(INITCAP(TRIM(departemen)), 'Unknown') AS departemen, 
+    COALESCE(INITCAP(TRIM(statuskepegawaian)), 'Unknown') AS statuskepegawaian, 
     COALESCE(UPPER(REGEXP_REPLACE(TRIM(apotekid), '[-_]', '', 'g')), 'UNKNOWN') AS apotekid
 FROM stg_karyawan
 WHERE karyawanid IS NOT NULL AND TRIM(CAST(karyawanid AS TEXT)) != ''
@@ -122,9 +122,9 @@ ON CONFLICT (karyawanid) DO NOTHING;
 -- ============================================================================
 INSERT INTO dim_supplier (supplierid, namasupplier, kotasupplier)
 SELECT DISTINCT
-    UPPER(REGEXP_REPLACE(TRIM(supplierid), '[-_]', '', 'g')) AS supplierid,
-    COALESCE(TRIM(namasupplier), 'Unknown') AS namasupplier,
-    COALESCE(TRIM(kotasupplier), 'Unknown') AS kotasupplier
+    UPPER(REGEXP_REPLACE(TRIM(supplierid), '[-_]', '', 'g')) AS supplierid, 
+    COALESCE(INITCAP(TRIM(namasupplier)), 'Unknown Supplier') AS namasupplier, 
+    COALESCE(INITCAP(TRIM(kotasupplier)), 'Unknown') AS kotasupplier 
 FROM stg_supplier
 WHERE supplierid IS NOT NULL AND TRIM(CAST(supplierid AS TEXT)) != ''
 ON CONFLICT (supplierid) DO NOTHING;

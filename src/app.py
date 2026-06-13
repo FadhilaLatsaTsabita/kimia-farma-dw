@@ -386,7 +386,7 @@ elif menu_selection == "📊 OLAP Business Insight":
                 # INSIGHT 1: Pola beli lansia BPJS per kategori produk
                 sub1 = df[
                     (df["kelompokusia"] == "56+") &
-                    (df["tipepelanggan"] == "BPJS/Asuransi")
+                    (df["tipepelanggan"] == "Bpjs/Asuransi")
                 ]
                 if not sub1.empty:
                     agg1 = sub1.groupby('kategoriproduk')['jumlahterjual'].sum().reset_index().sort_values('jumlahterjual')
