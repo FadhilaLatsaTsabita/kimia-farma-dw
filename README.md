@@ -5,7 +5,7 @@
 Proyek ini merupakan implementasi **Data Warehouse** dan **Business Intelligence Platform** untuk analisis data operasional Kimia Farma menggunakan pendekatan **ELT (Extract, Load, Transform)** dan model dimensional **Star Schema OLAP**.
 
 > ⚠️ **Catatan Penting Mengenai Dataset:**
-> Dikarenakan data operasional asli perusahaan bersifat rahasia (*confidential*), seluruh data yang digunakan dalam proyek ini adalah **dataset dummy/sintetis**. Data ini dibangkitkan secara khusus menggunakan Python dengan karakteristik dan distribusi yang dirancang sedemikian rupa agar mendekati pola data operasional riil pada salah satu farmasi di Indonesia.
+> Dikarenakan data operasional asli perusahaan bersifat rahasia (*confidential*), seluruh data yang digunakan dalam proyek ini adalah **dataset dummy/sintetis**. Data ini dibangkitkan secara khusus dengan karakteristik dan distribusi yang dirancang sedemikian rupa agar mendekati pola data operasional riil pada salah satu farmasi di Indonesia.
 
 Data operasional tiruan tersebut diekstraksi menggunakan Python, dimuat ke **Supabase PostgreSQL**, ditransformasikan menjadi tabel dimensi dan fakta menggunakan SQL. Hasil transformasi disajikan secara interaktif untuk mendukung simulasi pengambilan keputusan bisnis berbasis data melalui dua platform visualisasi:
 *   📊 **Power BI Dashboard (Utama):** Dashboard produksi utama dengan analisis mendalam, pemodelan data tingkat lanjut, dan visualisasi interaktif yang komprehensif.
