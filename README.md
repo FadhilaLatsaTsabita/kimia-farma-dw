@@ -7,7 +7,7 @@ Proyek ini merupakan implementasi **Data Warehouse** dan **Business Intelligence
 > ⚠️ **Catatan Penting Mengenai Dataset:**
 > Dikarenakan data operasional asli perusahaan bersifat rahasia (*confidential*), seluruh data yang digunakan dalam proyek ini adalah **dataset dummy/sintetis**. Data ini dibangkitkan secara khusus dengan karakteristik dan distribusi yang dirancang sedemikian rupa agar mendekati pola data operasional riil pada salah satu farmasi di Indonesia.
 
-Data operasional tiruan tersebut diekstraksi menggunakan Python, dimuat ke **Supabase PostgreSQL**, ditransformasikan menjadi tabel dimensi dan fakta menggunakan SQL. Hasil transformasi disajikan secara interaktif untuk mendukung simulasi pengambilan keputusan bisnis berbasis data melalui dua platform visualisasi:
+Data operasional tersebut dimuat ke **Supabase PostgreSQL**, ditransformasikan menjadi tabel dimensi dan fakta menggunakan SQL. Hasil transformasi disajikan secara interaktif untuk mendukung simulasi pengambilan keputusan bisnis berbasis data melalui dua platform visualisasi:
 *   📊 **Power BI Dashboard (Utama):** Dashboard produksi utama dengan analisis mendalam, pemodelan data tingkat lanjut, dan visualisasi interaktif yang komprehensif.
 *   🌐 **Streamlit Dashboard (Alternatif):** Dashboard berbasis web Python yang berfungsi sebagai platform alternatif yang ringan dan portabel.
 
