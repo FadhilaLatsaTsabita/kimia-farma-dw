@@ -72,7 +72,7 @@ CREATE TABLE dim_waktu (
     tahun INT
 );
 
--- 7. MEMBUAT TABEL FAKTA PENJUALAN (Lengkap dengan Foreign Keys)
+-- 7. MEMBUAT TABEL FAKTA PENJUALAN 
 CREATE TABLE fact_penjualan (
     factid BIGSERIAL PRIMARY KEY,
     fakturid VARCHAR(50),

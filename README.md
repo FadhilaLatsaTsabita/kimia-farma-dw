@@ -2,9 +2,14 @@
 
 ## 📌 Deskripsi Proyek
 
-Proyek ini merupakan implementasi **Data Warehouse** dan **Business Intelligence Dashboard** untuk analisis data operasional Kimia Farma menggunakan pendekatan **ELT (Extract, Load, Transform)** dan model dimensional **Star Schema OLAP**.
+Proyek ini merupakan implementasi **Data Warehouse** dan **Business Intelligence Platform** untuk analisis data operasional Kimia Farma menggunakan pendekatan **ELT (Extract, Load, Transform)** dan model dimensional **Star Schema OLAP**.
 
-Data operasional diekstraksi menggunakan Python, dimuat ke **Supabase PostgreSQL**, ditransformasikan menjadi tabel dimensi dan fakta menggunakan SQL, kemudian disajikan melalui dashboard interaktif berbasis **Streamlit** untuk mendukung pengambilan keputusan bisnis berbasis data.
+> ⚠️ **Catatan Penting Mengenai Dataset:**
+> Dikarenakan data operasional asli perusahaan bersifat rahasia (*confidential*), seluruh data yang digunakan dalam proyek ini adalah **dataset dummy/sintetis**. Data ini dibangkitkan secara khusus menggunakan Python dengan karakteristik dan distribusi yang dirancang sedemikian rupa agar mendekati pola data operasional riil pada salah satu farmasi di Indonesia.
+
+Data operasional tiruan tersebut diekstraksi menggunakan Python, dimuat ke **Supabase PostgreSQL**, ditransformasikan menjadi tabel dimensi dan fakta menggunakan SQL. Hasil transformasi disajikan secara interaktif untuk mendukung simulasi pengambilan keputusan bisnis berbasis data melalui dua platform visualisasi:
+*   📊 **Power BI Dashboard (Utama):** Dashboard produksi utama dengan analisis mendalam, pemodelan data tingkat lanjut, dan visualisasi interaktif yang komprehensif.
+*   🌐 **Streamlit Dashboard (Alternatif):** Dashboard berbasis web Python yang berfungsi sebagai platform alternatif yang ringan dan portabel.
 
 ---
 
@@ -31,8 +36,9 @@ Star Schema Data Warehouse
     ▼
 Analytical View
     │
-    ▼
-Streamlit Dashboard
+    ├───► Power BI Dashboard (Main Platform)
+    │
+    └───► Streamlit Dashboard (Alternative Web)
 ```
 
 ---
@@ -46,6 +52,9 @@ kimia-farma-dw/
 │   └── secrets.toml
 │
 ├── data/
+│
+├── reports/
+│   └── dashboard.pbix
 │
 ├── src/
 │   ├── extract.py
@@ -109,7 +118,8 @@ kimia-farma-dw/
 | Komponen             | Teknologi        |
 | -------------------- | ---------------- |
 | Programming Language | Python           |
-| Dashboard            | Streamlit        |
+| Main Dashboard       | Power BI         |
+| Alternatif Dashboard | Streamlit        |
 | Database             | PostgreSQL       |
 | Cloud Database       | Supabase         |
 | Data Processing      | Pandas           |
@@ -119,8 +129,12 @@ kimia-farma-dw/
 
 ---
 
-## 🚀 Deployment
+## 🚀 Akses Dashboard & Deployment
 
+### 1. Dashboard Utama (Power BI)
+Dashboard utama dapat diakses langsung melalui file Microsoft Power BI yang berada di folder reports/dashboard.pbix
+
+### 2. Dashboard Alternatif (Streamlit)
 Aplikasi telah berhasil di-deploy menggunakan Streamlit Community Cloud dan dapat diakses melalui:
 
 🔗 https://kimia-farma-dw.streamlit.app/
